@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"phonebook.hpp": "c",
+		"iomanip": "cpp"
+	}
+}
