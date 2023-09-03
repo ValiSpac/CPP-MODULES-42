@@ -5,6 +5,7 @@ NAME = ClapTrap
 
 SRCS = src/ClapTrap.cpp \
 		src/ScavTrap.cpp \
+		src/FragTrap.cpp \
 		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)

@@ -7,18 +7,24 @@ using std::endl;
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	cout << "Default ScavTrap Constructor called" << endl;
+	this->attack_damage = 20;
+	this->energy_points = 50;
 	this->gate_guard = false;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     cout << "Constructor ScavTrap called" << endl;
+	this->attack_damage = 20;
+	this->energy_points = 50;
 	this->gate_guard = false;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& original) : ClapTrap(original)
 {
     cout << "Copy ScavTrap constructor called" << endl;
+	this->attack_damage = 20;
+	this->energy_points = 50;
 	this->gate_guard = false;
 }
 

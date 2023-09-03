@@ -8,8 +8,8 @@ ClapTrap::ClapTrap()
 {
     cout << "Default ClapTrap Constructor called" << endl;
     this->name = "rogue enemy";
-    this->attack_damage = 30;
-    this->energy_points = 100;
+    this->attack_damage = 0;
+    this->energy_points = 10;
     this->hit_points = 100;
 }
 
@@ -17,8 +17,8 @@ ClapTrap::ClapTrap(std::string name)
 {
     cout << "Constructor ClapTrap called" << endl;
     this->name = name;
-    this->attack_damage = 30;
-    this->energy_points = 100;
+    this->attack_damage = 0;
+    this->energy_points = 10;
     this->hit_points = 100;
 }
 
