@@ -24,7 +24,6 @@ bool isValidDate(std::string date)
 		else if (date[i] != 45)
 			return false;
 	}
-//	std::cout << date.substr(7, 3) << "----" << date.substr(4, 3) << std::endl;
 	if (day_n > 30 || day_n < 0 || month_n > 12 || month_n < 0)
 		return false;
 	return true;
