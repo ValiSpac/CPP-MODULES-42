@@ -1,26 +1,41 @@
 # include "inc/RPN.hpp"
 # include <limits.h>
 
-int main(int argc, char **argv)
+bool checkFormat(int ar, char *input)
 {
-	if (argc != 2)
+	if (ar < 2)
 	{
 		std::cout << "Error: invalid argument!" << std::endl;
-		return 1;
+		return false;
 	}
+	int nb = 0;
+	int op = 0;
 	int i = 0;
-	int count = 0;
-	while (!isOperator(argv[1][i]))
+	while (input[i])
 	{
-		if (isNum(argv[1][i]))
-			count++;
+		if (isNum(input[i]))
+			nb++;
+		else if (isOperator(input[i]))
+			op++;
 		i++;
 	}
-	if (count > 2)
+	if (nb != op + 1)
 	{
 		std::cout << "Error: wrong format!" << std::endl;
-		return 1;
+		return false;
 	}
+	else if (nb == 1)
+	{
+		std::cout << "Error: only one argument!" << std::endl;
+		return false;
+	}
+	return true;
+}
+
+int main(int argc, char **argv)
+{
+	if (!checkFormat(argc, argv[1]))
+		return 1;
 	std::stack<int> rpn;
 	int a,b;
 	for (int i = 0; argv[1][i]; i++)
@@ -36,13 +51,13 @@ int main(int argc, char **argv)
 			rpn.pop();
 			b = rpn.top();
 			rpn.pop();
-			float res = static_cast<float>(operation(a, b, argv[1][i]));
-			if (res < INT_MIN || res > INT_MAX)
+			float res = operation(a, b, argv[1][i]);
+			if (res > INT_MAX)
 			{
 				std::cout << "Error: result bigger then max int!" << std::endl;
 				return 1;
 			}
-			rpn.push(operation(a, b, argv[1][i]));
+			rpn.push(static_cast<int>(res));
 		}
 		else if (isNum(argv[1][i]))
 		{

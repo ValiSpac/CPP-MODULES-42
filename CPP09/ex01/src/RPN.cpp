@@ -7,8 +7,10 @@ bool isOperator(char op)
 	return false;
 }
 
-int operation(int a, int b, char op)
+float operation(int first, int second, char op)
 {
+	float a = first;
+	float b = second;
 	if (op == '+')
 		return (a + b);
 	if (op == '-')
